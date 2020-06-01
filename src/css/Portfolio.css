@@ -1,0 +1,56 @@
+.portfolioCard .card {
+    position: relative;
+    width: 100%;
+}
+.card-title{
+    color: #0D867A;
+}
+.card-img-top{
+    /*max-height: 250px;*/
+    /*ma-width: 200px;*/
+}
+.portfolio {
+    justify-content: center;
+    position: relative;
+    max-height: 90%;
+
+}
+.toggleIcons {
+    float:right;
+    right:0
+}
+.noDisplay {
+    display: none;
+
+    transition-delay: 1.8s;
+}
+
+.detailsDiv {
+    /*background-color: whitesmoke;*/
+height:100%;
+
+    /*min-height: inherit;*/
+}
+.accomplishments{
+    height: 100%;
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+.accom_heading{
+    color: orange;
+    font-size: 28px;
+    line-height: 18px;
+
+}
+.projectsLinks {
+    height:40px;
+    width: 40px;
+    line-height: 36px;
+    /*padding-left:4% ;*/
+    background-color: #793d19;
+    border-radius:50%;
+    text-align: center;
+    /*background-color:white;*/
+}

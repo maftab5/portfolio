@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'jquery/dist/jquery';
+import 'bootstrap/dist/js/bootstrap.js';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
