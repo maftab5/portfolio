@@ -1,37 +1,37 @@
 {
   "projects" :[
     {
-      "image" : "../portfolioimage.jpeg",
-      "name" : "mWorkmap",
-      "desc" : "A project Management software that helps to track the projects assigned to team",
+      "image" : "../cafe.JPG",
+      "name" : "Online Cafe",
+      "desc" : "Website for a fast food service with online payment system",
       "accomplishments" : [
-        "PHP backend One",
-        "Bootstrap, CSS, javascript on frontend","Authentication using JWT","multiple users assignation for project","different third party api integration"
+        "Node js and MongoDB as backend",
+        "Angular js,TypeScript, Bootstrap, CSS for frontend ","Authentication using JWT","payment using Paypal"
       ],
       "github" : "https://github.com/maftab5/capestone-angular",
       "online" : "https://capestone-angular.herokuapp.com/"
     },
     {
-      "image" : "portfolioimage.jpeg",
-      "name" : "Bhudeo",
-      "desc" : "A project Management software that helps to track the projects assigned to team",
+      "image" : "../abiva.JPG",
+      "name" : "Abiva",
+      "desc" : "An online learning platform for the students.",
       "accomplishments" : [
-        "PHP backend",
-        "Bootstrap, CSS, javascript on frontend","Authentication using JWT","multiple users assignation for project","different third party api integration"
+        "PHP (Laravel ), MySql",
+        "Bootstrap, CSS, Javascript on frontend","Authentication using JWT","different modules for students, parents and teachers"
       ],
-      "github" : "https://github.com/maftab5/capestone-angular",
+      "github" : "",
       "online" : "https://capestone-angular.herokuapp.com/"
     },
     {
-      "image" : "../portfolioimage.jpeg",
-      "name" : "mWorkmap",
-      "desc" : "A project Management software that helps to track the projects assigned to team",
+      "image" : "../realestate.JPG",
+      "name" : "RealEstate",
+      "desc" : "A fully responsive static website to demonstrate the lists of properties.",
       "accomplishments" : [
-        "PHP backend One",
-        "Bootstrap, CSS, javascript on frontend","Authentication using JWT","multiple users assignation for project","different third party api integration"
+        "HTML", "CSS", "BOOTSTRAP","Javascript","jQuery"
+
       ],
-      "github" : "https://github.com/maftab5/capestone-angular",
-      "online" : "https://capestone-angular.herokuapp.com/"
+      "github" : "https://github.com/maftab5/responsive",
+      "online" : "https://jsfinalproject.herokuapp.com/"
     },
     {
       "image" : "portfolioimage.jpeg",
@@ -54,33 +54,6 @@
   ],
   "experience" : [
     {
-      "company_name" : "Maskey Consultancy",
-      "logo" :  "maskey_logo.png",
-      "details" : "Software Company that build every types of projects",
-      "position" : "Full stack Web Developer",
-      "developed_projects": [
-        {
-          "name" : "mWorkmap",
-          "desc" : "A project management software for the enterprise level"
-        },
-        {
-          "name" : "bhudeo Company",
-          "desc" : "A project management software for the enterprise level"
-        },
-        {
-          "name" : "bhudeo Sr",
-          "desc" : "A project management software for the enterprise level"
-        }
-      ],
-      "company_accomplishments" : [
-        "Worked in both front-end and backend",
-        "Managed the team for projects",
-        "Given training to the new employees"
-      ],
-      "job_duration" : "May 2014 - Jul 2016",
-      "location" : "Narayangarh, Nepal"
-    },
-    {
       "company_name": "Techroadians Offshore Base",
       "logo": "techroadian_logo.png",
       "details": "Kathmandu based Software solution company focused on Business branding, Web applications and Information technology ",
@@ -100,12 +73,42 @@
         }
       ],
       "company_accomplishments": [
-        "Worked in both front-end and backend",
-        "Managed the team for projects",
-        "Given training to the new employees"
+        "Created and maintained web applications for small business to enterprise corporation",
+        "Redesign and optimize database schema",
+        "Enhanced the performance of the application through optimized algorithm",
+        "Designed the REST api endpoints",
+        "Documenting features, technical specifications & infrastructure requirements."
       ],
-      "job_duration": "May 2014 - Jul 2016",
-      "location": "Narayangarh, Nepal"
+      "job_duration": "Nov 2016 - Mar 2018",
+      "location": "Kathmandu, Nepal"
+    },
+    {
+      "company_name" : "Maskey Consultancy",
+      "logo" :  "maskey_logo.png",
+      "details" : "Software Company that build every types of projects",
+      "position" : "Full stack Web Developer",
+      "developed_projects": [
+        {
+          "name" : "mWorkmap",
+          "desc" : "A project management software for the enterprise level"
+        },
+        {
+          "name" : "bhudeo Company",
+          "desc" : "A project management software for the enterprise level"
+        },
+        {
+          "name" : "bhudeo Sr",
+          "desc" : "A project management software for the enterprise level"
+        }
+      ],
+      "company_accomplishments" : [
+        "Created web applications, participating in the whole process of development",
+        "Product design and estimation, code and UI/UX design, product lunch and maintenance ",
+        "Worked on bug fixes, user interface updates, and performance enhancements",
+        "Lead and mentored serveral developers"
+      ],
+      "job_duration" : "May 2014 - Jul 2016",
+      "location" : "Narayangarh, Nepal"
     }
   ],
   "education" : [

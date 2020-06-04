@@ -1,70 +1,101 @@
-import React, {Component} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import '../css/About.css';
 
 import {
     FaReact, FaAngular, FaHtml5, FaCss3Alt,
     FaNodeJs, FaGithub, FaPhp, FaWordpress, FaAws, FaLinkedin, FaDownload, FaLinux
 } from "react-icons/fa";
+import FadeInSection from "./FadeInSection";
+import Education from "./Education";
+import Experience from "./Experience";
 
 
-class About extends Component {
+const About = () =>{
 
-    constructor (props) {
-        super(props);
-        this.state = {
-            about :[],
-            experience:[],
-            education :[],
-            exp_lastIndex :0,
-            edu_lastIndex :0
-        }
-    }
 
-    componentDidMount() {
+    // use of hooks
+    // instead of using contructor of class component , we will use useState of hooks
+
+    const [about,setAbout] = useState([]);
+    const [experience, setExperience] = useState([]);
+    const [education, setEducation] = useState([]);
+    const [exp_lastIndex, setExpIndex] = useState(0);
+    const [edu_lastIndex, setEduIndex] = useState(0);
+
+    // // for fade in state
+    // const [isVisible, setVisible] = useState(true);
+    //
+    // const domRef = useRef();
+
+    // for class component
+    /*
+     constructor (props) {
+         super(props);
+         this.state = {
+             about :[],
+             experience:[],
+             education :[],
+             exp_lastIndex :0,
+             edu_lastIndex :0
+         }
+    } */
+
+    // instead of using componentDidMount, we will use useEffect() of hook
+    useEffect(() => {
+
+
+
         fetch('./data.json')
             .then(response => response.json())
             .then(result => {
-                // for about
-                const about =  result.about.map(item =>{
-                    return item;
+
+                //for about data
+                const about = result.about.map(item => {
+                    return item
+                });
+
+                //for const experience
+                const experience = result.experience.map(item => {
+
+                    item.expId = exp_lastIndex;
+                    //changing the state of exp index
+                    setExpIndex(exp_lastIndex +1);
+
+                    return item
+                });
+
+                // for education
+                const education = result.education.map(item => {
+                    item.eduId = edu_lastIndex;
+                    setEduIndex(edu_lastIndex +1);
+                    return item
                 })
 
+                setAbout(about);
+                setExperience(experience);
+                setEducation(education);
 
-                // for expereiences list
-                const experienceLists = result.experience.map(item =>{
-                    item.expId = this.state.exp_lastIndex;
-                    this.setState({
-                        exp_lastIndex : this.state.exp_lastIndex +1
-                    })
-                    return item;
-                })
+            });
 
-                //for education lists
-                const education_lists = result.education.map(item =>{
-                    item.eduId = this.state.edu_lastIndex;
 
-                    this.setState({
-                        edu_lastIndex : this.state.edu_lastIndex +1
-                    })
-                    return item;
-                })
+    })
 
-                this.setState({
-                    about :about,
-                    experience : experienceLists,
-                    education : education_lists
-                })
-            })
-    }
+    // // for animation
+    // const observer = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => setVisible(entry.isIntersecting));
+    // });
+    // observer.observe(domRef.current);
+    // return () => observer.unobserve(domRef.current);
 
-    render() {
+
         return (
             <>
                 <div className="container">
                     <div className="row">
 
                         {
-                            this.state.about.map(item => (
+                           about.map(item => (
+<FadeInSection>
                                 <div className="row">
                                 <div className="col-lg-5 col-md-5 col-sm-5 col-xs-5 about_image_div">
                                     <img src={"./" + item.image} className="about_image" alt="About"
@@ -89,74 +120,15 @@ class About extends Component {
 
                             </div>
                                 </div>
+</FadeInSection>
                             ))
                         }
 
 
+<Experience experience={experience} />
 
 
 
-                        {/*EXPERIENCE SECTION STARTS*/}
-                        <div className="container">
-                            <div className="col-lg-12 about_section">
-                                Experience
-                            </div>
-
-                            {
-                                this.state.experience.map(item => (
-                                    <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 ml-auto about_inner_div">
-
-                                        <div className="section_header">
-                                            <div className="row">
-                                                <div className="col-lg-2 col-md-2 col-sm-2 d-none d-sm-block  company_logo">
-                                                    <img src={"./" + item.logo} alt="about"/>
-                                                </div>
-
-                                                <div className="col-lg-7 col-md-6 col-sm-5 col-xs-2 company_name">
-                                                    {item.company_name}
-                                                </div>
-                                                <div className="col-lg-3 col-md-4 col-sm-5 col-xs-9 company_position">
-                                                    {item.position}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="innerText">
-                                            <p>{item.details}</p>
-
-                                            <p>DEVELOPED PROJECTS</p>
-                                            <ul>
-                                                { item.developed_projects.map(item => (
-                                                    <li>
-                                                        {item.name} : {item.desc}
-                                                    </li>
-                                                ))
-                                                }
-
-                                            </ul>
-
-                                            <p>ACCOMPLISHMENTS</p>
-                                            <ul>
-                                                { item.company_accomplishments.map(item => (
-                                                    <li>
-                                                        {item}
-                                                    </li>
-                                                ))
-                                                }
-                                            </ul>
-
-                                        </div>
-
-                                        <div className="section-footer">
-                                            <p>{item.job_duration} | {item.location}</p>
-                                        </div>
-
-                                    </div>
-                                ))
-                            }
-
-                        </div>
-                        {/*EXPERIENCE SECTION ENDS*/}
 
                         {/*SKILLS SECTION STARTS*/}
                         <div className="container">
@@ -166,10 +138,13 @@ class About extends Component {
 
 
                             {/*FRONT-END STARTS*/}
+
                             <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 ml-auto about_inner_div">
+
                                 <div className="col-lg-12 col-md-12 col-sm-12 section_header">
                                     FRONT-END
                                 </div>
+                                <FadeInSection>
                                 <div className="row">
                                     <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3 technologiesIcon">
                                         <FaReact size={80} style={{color: 'blue'}}/>
@@ -188,7 +163,9 @@ class About extends Component {
                                         <p>CSS3</p>
                                     </div>
                                 </div>
+                                </FadeInSection>
                             </div>
+
                             {/*FRONT-END ENDS*/}
 
                             {/*BACK-END STARTS*/}
@@ -196,6 +173,7 @@ class About extends Component {
                                 <div className="col-lg-12 col-md-12 col-sm-12 section_header">
                                     BACK-END
                                 </div>
+                            <FadeInSection>
                                 <div className="row">
                                     <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3 technologiesIcon">
                                         <FaNodeJs size={80} style={{color: 'blue'}}/>
@@ -207,6 +185,7 @@ class About extends Component {
                                     </div>
 
                                 </div>
+                            </FadeInSection>
                             </div>
                             {/*BACK-END ENDS*/}
 
@@ -215,6 +194,7 @@ class About extends Component {
                                 <div className="col-lg-12 col-md-12 col-sm-12 section_header">
                                     OTHERS
                                 </div>
+                                <FadeInSection>
                                 <div className="row">
                                     <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3 technologiesIcon">
                                         <FaWordpress size={80} style={{color: 'blue'}}/>
@@ -234,48 +214,13 @@ class About extends Component {
                                     </div>
 
                                 </div>
+                                </FadeInSection>
                             </div>
                             {/*OTHERS ENDS*/}
                         </div>
 
                         {/*SKILLS SECTION ENDS*/}
-
-                        {/*EDUCATION STARTS*/}
-                        <div className="container">
-
-                            <div className="col-lg-12 about_section">
-                                EDUCATION
-                            </div>
-
-                            {
-                                this.state.education.map(item => (
-                                    <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 ml-auto about_inner_div">
-
-
-                                        <div className="col-lg-12 col-md-12 col-sm-12 section_header">
-                                            <strong> {item.college_name}</strong>
-                                        </div>
-
-                                        <div className="innerText">
-                                            <p>{item.address}</p>
-
-                                            <p>{item.program}</p>
-
-
-                                        </div>
-
-                                        <div className="section-footer">
-                                            <p>{item.duration}</p>
-                                        </div>
-
-                                    </div>
-                                ))
-                            }
-
-                        </div>
-
-
-                        {/*EDUCATION ENDS*/}
+<Education education={education}/>
 
                     </div>
                 </div>
@@ -284,6 +229,6 @@ class About extends Component {
         )
 
     }
-}
+
 
 export default About;

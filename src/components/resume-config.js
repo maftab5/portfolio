@@ -7,11 +7,11 @@ Font.register({
 
 const styles = StyleSheet.create({
     body: {
-
+color: '#6a6a6a',
         //flexDirection: 'row',
         paddingTop: 20,
         paddingBottom: 65,
-        paddingHorizontal: 5,
+        paddingHorizontal:25,
     },
     viewer: {
         backgroundColor: 'white',
@@ -24,12 +24,13 @@ views : {
     text: {
         // margin: 18,
         fontSize: 10,
-        marginBottom:15,
+        marginBottom:10,
         // fontFamily: 'arial'
     },
     designation : {
         fontSize: 12,
-        color: 'green',
+        marginBottom:5,
+        marginTop:5
     },
     image: {
         maxHeight: '10vh',
@@ -58,19 +59,22 @@ views : {
     },
     contactdivs: {
         flexGrow: 1,
-        padding: 5,
+        padding: 2,
         width:'30%',
         borderLeft:'1px solid lightgrey'
     },
     experinceDiv : {
-        width: '100%',
+        marginTop:'5%',
+        width: '25%',
         fontSize: 20,
         color: 'steelblue',
-        marginBottom: 10
+        textAlign: 'right'
     },
     companyDiv : {
         maxWidth: '25%',
-        flexGrow: 1
+        flexGrow: 1,
+        marginRight:'2%'
+
     },
     companyDesc : {
         maxWidth : '65%'
