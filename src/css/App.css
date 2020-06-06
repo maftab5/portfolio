@@ -1,3 +1,6 @@
+body {
+    background-color: #22211d  !important;
+}
 .banner_image {
   min-height: 100%;
   background-image: url("../portfolioimage.jpeg");
@@ -25,7 +28,7 @@
 .modal.right .modal-content {
   height: 100%;
   overflow-y: auto;
-  background: #007bff;
+  background: #0c0808;
   color: #fff;
 }
 

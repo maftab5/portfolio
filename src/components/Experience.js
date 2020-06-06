@@ -1,30 +1,30 @@
 import React from "react";
 import FadeInSection from "./FadeInSection";
 
-const Experience = (props) =>{
+const Experience = ({experience}) =>{
     return (
         <>
             {/*EXPERIENCE SECTION STARTS*/}
             <div className="container">
-                <div className="col-lg-12 about_section">
+                <div className="col-lg-12 col-md-12 about_section">
                     Experience
                 </div>
 
                 {
-                    props.experience.map(item => (
-                        <FadeInSection>
-                            <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 ml-auto about_inner_div">
+                    experience.map(item => (
+<FadeInSection>
+                            <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12 ml-auto about_inner_div" key={item.expId}>
 
                                 <div className="section_header">
                                     <div className="row">
-                                        <div className="col-lg-2 col-md-2 col-sm-2 d-none d-sm-block  company_logo">
-                                            <img src={"./" + item.logo} alt="about"/>
-                                        </div>
+                                        {/*<div className="col-lg-2 col-md-2 col-sm-2 d-none d-sm-block  company_logo">*/}
+                                        {/*    <img src={"./" + item.logo} alt="about"/>*/}
+                                        {/*</div>*/}
 
-                                        <div className="col-lg-7 col-md-6 col-sm-5 col-xs-2 company_name">
-                                            {item.company_name}
+                                        <div className="col-lg-7 col-md-6 col-sm-12 col-xs-12 company_name">
+                                            <strong> {item.company_name}</strong>
                                         </div>
-                                        <div className="col-lg-3 col-md-4 col-sm-5 col-xs-9 company_position">
+                                        <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 company_position">
                                             {item.position}
                                         </div>
                                     </div>
@@ -33,7 +33,7 @@ const Experience = (props) =>{
                                 <div className="innerText">
                                     <p>{item.details}</p>
 
-                                    <p>DEVELOPED PROJECTS</p>
+                                    <p>PROJECTS</p>
                                     <ul>
                                         { item.developed_projects.map(item => (
                                             <li>
@@ -61,7 +61,7 @@ const Experience = (props) =>{
                                 </div>
 
                             </div>
-                        </FadeInSection>
+</FadeInSection>
                     ))
                 }
 

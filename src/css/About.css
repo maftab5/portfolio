@@ -1,52 +1,116 @@
-.container {
+.about_image_div {
+  min-width: 100%;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    position: relative;
 
 }
-.about_image {
-    max-height: 100%;
-
-    max-width:100%;
-
+.about_image_div::before {
+    background-image: url("../about_image.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    /*opacity: 0.4;*/
 }
+
+/*setting the background color above the background image*/
+.about_image_div::after {
+    background-color: rgba(25, 1, 18, 0.56);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+/*overlaying text horizontally and vertically center*/
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+/*text inside the div */
+.about_text{
+    color: #fff;
+    font-size: 1.5em;
+    padding-left: 10%;
+    min-width: 95vw;
+    min-height: 2em;
+    position: relative;
+}
+
+.services {
+    font-size: 20px;
+    min-height: 200px;
+    min-width: 250px;
+    margin-bottom:50px;
+    border-bottom: 1px solid black;
+    background: #16ADE3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: darkgrey;
+    /*line-height: 20px;*/
+}
+
+
 .about_section {
-    background-color: steelblue;
+    /*background-color: steelblue;*/
     padding: 10px;
     color: white;
-    //text-align: center;
+    /*font-weight:bold ;*/
+    letter-spacing: 0.25em;
+    /*text-align: center;*/
     text-transform: uppercase;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
-    font-size: 25px;
+    font-family: "Heebo", "Helvetica Neue", Helvetica, sans-serif;
+    /*animation: fadeIn 2s forwards;*/
+    font-size: 2.5em;
 }
 .about_inner_div {
-    margin: 2% auto;
-    background-color: white;
-    -webkit-box-shadow: 0px 0px 6px 1px rgba(10,7,10,0.43);
-    -moz-box-shadow: 0px 0px 6px 1px rgba(10,7,10,0.43);
-    box-shadow: 0px 0px 6px 1px rgba(10,7,10,0.43);
-}
-.company_logo img {
-    height: 50px;
-    width:50px;
+    margin: 2% -2%;
+    font-family: "Heebo", "Helvetica Neue", Helvetica, sans-serif;
+    animation: fadeIn 2s forwards;
+    color: darkgrey;
+
 }
 .company_name {
-    color: steelblue;
+    color: #16ADE3;
     text-transform: uppercase;
+    letter-spacing: 0.25em;
+}
+h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
 }
 .company_position {
     color: #795548;
 }
 .section_header{
-    max-height: 80px;
-
-    line-height: 80px;
-    border-bottom: 1px solid grey;
+    padding-bottom: 2%;
+    color: #16ADE3;
+    font-weight: bold;
 }
 .section-footer {
-    margin:0 -15px !important;
+    /*margin:0 -15px !important;*/
     padding: 0 10px;
-    height: 45px;
-    line-height: 45px;
-    background-color: #f5f3f2;
 }
 
 .technologiesIcon{
@@ -58,9 +122,9 @@
 /*for fade in animation*/
 .fade-in-section {
     opacity: 0;
-    transform: translateY(20vh);
+    transform: translateY(25vh);
     visibility: hidden;
-    transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.8s ease-out;
     will-change: opacity, visibility;
 }
 .fade-in-section.is-visible {

@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import '../css/Portfolio.css';
-import {FaGithub, FaExternalLinkAlt, FaEllipsisV, FaWindowClose, FaRegWindowClose, FaTimes} from "react-icons/all";
+import {FaGithub, FaExternalLinkAlt, FaEllipsisV, FaTimes} from "react-icons/all";
 import {findIndex} from 'lodash';
-import {Link} from 'react-router-dom';
 class Portfolio extends Component {
 
     constructor(props) {
@@ -66,6 +65,7 @@ class Portfolio extends Component {
         const {isFetching} = this.state;
         return (
             <>
+
                 {isFetching ? (
                         <div>Loading...</div>
                     ) : (
@@ -117,10 +117,10 @@ class Portfolio extends Component {
                                         <div className="card-body" style={{borderTop:'1px solid grey',paddingTop:'2%'}}>
                                             <div className="row">
                                                 <div className=" projectsLinks mr-2 mb-2">
-                                                    <a href={item.github} target="_blank"><FaGithub size={30} title="View Source" style={{color:'#fff'}} /></a>
+                                                    <a href={item.github} target="_blank" rel="noopener noreferrer"><FaGithub size={30} title="View Source" style={{color:'#fff'}} /></a>
                                                 </div>
                                                 <div className=" projectsLinks mr-">
-                                                    <a href={item.online} target="_blank"> <FaExternalLinkAlt size={20}  title="View Online" style={{color:'#fff'}} /></a>
+                                                    <a href={item.online} target="_blank" rel="noopener noreferrer"> <FaExternalLinkAlt size={20}  title="View Online" style={{color:'#fff'}} /></a>
                                                 </div>
 
 
@@ -132,7 +132,9 @@ class Portfolio extends Component {
                                 </div>
 
 
-                                <div className="col-lg-4 col-md-4 col-sm-6"></div>
+                                <div className="col-lg-4 col-md-4 col-sm-6">
+
+                                </div>
                                 <div className="col-lg-4 col-md-4 col-sm-6"></div>
 
                             </div>

@@ -1,4 +1,4 @@
-import {PDFViewer, Image, Document, Page, Text, View, StyleSheet, Font, PDFDownloadLink, Link} from "@react-pdf/renderer";
+import {StyleSheet, Font} from "@react-pdf/renderer";
 
 Font.register({
     family: 'Oswald',

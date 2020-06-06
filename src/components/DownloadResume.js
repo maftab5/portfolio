@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {PDFDownloadLink,PDFViewer,Image ,Document, Page, Text, View, StyleSheet,Font} from "@react-pdf/renderer";
-import {throttle} from 'lodash';
+import {PDFDownloadLink,Image ,Document, Page, Text, StyleSheet,Font} from "@react-pdf/renderer";
 
 
 Font.register({
@@ -85,7 +84,7 @@ class PdfComponent extends Component {
     }
 
     render() {
-        const { PDFWidth } = this.state
+
         return (
             <div >
                 <div className="btn btn-primary">

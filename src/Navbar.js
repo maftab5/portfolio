@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom';
 import {Modal} from "react-bootstrap";
 import Contact from "./components/Contact";
 import './css/App.css';
-import {PDFViewer,PDFDownloadLink} from "@react-pdf/renderer";
-import Resume from "./components/Resume";
-
 class Navbar extends Component {
 
     constructor(props) {
@@ -27,7 +24,7 @@ class Navbar extends Component {
     // for contact message
     contactMessage = (message) => {
         // sending data to server
-        const result = fetch(`/contact`, {
+      fetch(`/contact`, {
             method: 'post',
             body: JSON.stringify(message),
             headers: {
@@ -46,7 +43,7 @@ class Navbar extends Component {
 
         return (
             <>
-                <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+                <nav className="navbar navbar-expand-lg navbar-light bg-inverse">
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
                             aria-label="Toggle navigation">
