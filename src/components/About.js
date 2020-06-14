@@ -65,8 +65,8 @@ class About extends Component {
     render() {
         return (
             <>
-                <div className="container">
-                    <div className="row">
+                <div className="row">
+                    <div className="col-lg-12" style={{paddingLeft:'0 !important',paddingRight:'0 !important'}}>
 
                         <Details about={this.state.about}/>
 
@@ -76,9 +76,8 @@ class About extends Component {
 
                         <Education education={this.state.education}/>
 
-
                     </div>
-                </div>
+                    </div>
 
             </>
         )

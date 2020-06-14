@@ -2,7 +2,8 @@
   "projects" :[
     {
       "image" : "../cafe.JPG",
-      "name" : "Online Cafe",
+      "name" : "Online Cafe ",
+      "technologies" :  "Angular | Node | MongoDb | Typescript",
       "desc" : "Website for a fast food service with online payment system",
       "accomplishments" : [
         "Node js and MongoDB as backend",
@@ -14,7 +15,8 @@
     {
       "image" : "../abiva.JPG",
       "name" : "Abiva",
-      "desc" : "An online learning platform for the students.",
+      "technologies" : "PHP | MySql | HTML | Bootstrap",
+      "desc" : "An online learning platform for the students and teachers",
       "accomplishments" : [
         "PHP (Laravel ), MySql",
         "Bootstrap, CSS, Javascript on frontend","Authentication using JWT","different modules for students, parents and teachers"
@@ -25,7 +27,8 @@
     {
       "image" : "../realestate.JPG",
       "name" : "RealEstate",
-      "desc" : "A fully responsive static website to demonstrate the lists of properties.",
+      "technologies" :"HTML5 | Javascript | Css | Bootstrap",
+      "desc" : "An online learning platform for the students and teachers",
       "accomplishments" : [
         "HTML", "CSS", "BOOTSTRAP","Javascript","jQuery"
 
@@ -36,20 +39,20 @@
     {
       "image" : "portfolioimage.jpeg",
       "name" : "Bhudeo",
+      "technologies" : "PHP | MySql | HTML | Bootstrap",
       "desc" : "A project Management software that helps to track the projects assigned to team",
       "accomplishments" : [
         "PHP backend",
         "Bootstrap, CSS, javascript on frontend","Authentication using JWT","multiple users assignation for project","different third party api integration"
       ],
-      "github" : "https://github.com/maftab5/capestone-angular",
-      "online" : "https://capestone-angular.herokuapp.com/"
+      "github" : "",
+      "online" : ""
     }
   ],
   "about" : [
     {
-    "recommendation" : "I had the privilege of working and teaching Mohammad in a few course during his time at Conestoga. Definetly one of the 'stars' we had come through the program. Always helping and contributing with great ideas and even better questions to challenge mine and his knowledge. To me, that is a sign of a student looking to name for themselves by proving their abilities through hard work. Great job Mohammad and all the best!",
-      "recby" : "John Prinz, Head of Department, Conestoga College",
-    "details" : "MOHAMMAD AFTAB. Born and raised in beautiful country Nepal"
+    "recommendation" : "I had the privilege of working and teaching Mohammad in a few course during his time at Conestoga. Definetly one of the 'stars' we had come through the program. Always helping and contributing with great ideas and even better questions to challenge mine and his knowledge. To me, that is a sign of a student looking to name for themselves by proving their abilities through hard work. Great job Mohammad and all the best!\n-John\rPrinz\nHead\rof\rDepartment\nConestoga\rCollege",
+     "details" : "MOHAMMAD AFTAB. Born and raised in beautiful country Nepal"
 
       }
   ],

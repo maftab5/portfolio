@@ -5,6 +5,7 @@ import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'jquery/dist/jquery';
 import 'bootstrap/dist/js/bootstrap.js';
+import '@openfonts/bebas-neue_latin'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

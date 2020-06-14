@@ -2,19 +2,23 @@ import React, {Component} from "react";
 import '../css/Portfolio.css';
 import {FaGithub, FaExternalLinkAlt, FaEllipsisV, FaTimes} from "react-icons/all";
 import {findIndex} from 'lodash';
+import FadeInSection from "./FadeInSection";
+
 class Portfolio extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            projects : [],
-            lastIndex :0
+            projects: [],
+            lastIndex: 0,
+            imageDiv: "pull-right",
+            detailDiv: "pull-left",
+            queryText: ""
         }
     }
 
 
-
-    componentDidMount(){
+    componentDidMount() {
         fetch('./data.json') // this line process the url
             .then(response => response.json())   // this gets the response and change the response in the json format
             .then(result => {                    // this is the result of json parse
@@ -23,13 +27,13 @@ class Portfolio extends Component {
                     item.prjId = this.state.lastIndex;
                     item.cardDisplay = true;
                     item.detailDisplay = false;
-                     this.setState({lastIndex : this.state.lastIndex +1})
+                    this.setState({lastIndex: this.state.lastIndex + 1})
                     return item;
                 })
 
                 // never change the state directly, rather use setState method to change the state
                 this.setState({
-                    projects : projects
+                    projects: projects
                 })
 
             })
@@ -43,110 +47,127 @@ class Portfolio extends Component {
 
         //using the lodash library's function to find the item from the array of items
         let projectId = findIndex(this.state.projects, {
-            prjId : id
+            prjId: id
         });
-        console.log(id + " this is id" +projectId);
+        console.log(id + " this is id" + projectId);
         //
         console.log(`temp projs  ${tempProjects[0]}`)
         tempProjects[projectId]['cardDisplay'] = !tempProjects[projectId]['cardDisplay'];
         tempProjects[projectId]['detailDisplay'] = !tempProjects[projectId]['detailDisplay'];
 
         this.setState({
-            projects : tempProjects
+            projects: tempProjects
         })
 
     }
 
 
+    // for search projects in the search box
+    searchProjs = (query) => {
+        this.setState({
+            queryText: query
+        })
+    }
 
 
     render() {
         // console.log(this.state.cardDisplay, this.state.detailDisplay)
         const {isFetching} = this.state;
+
+        let filteredProjs = this.state.projects;
+
+        filteredProjs = filteredProjs.filter(eachItem => {
+            return (
+                eachItem['name'].toLowerCase().includes(this.state.queryText.toLowerCase()) ||
+                eachItem['technologies'].toLowerCase().includes(this.state.queryText.toLowerCase())
+            )
+        })
+
         return (
             <>
 
                 {isFetching ? (
-                        <div>Loading...</div>
-                    ) : (
-                <div className="container">
-                    <h2>My Recent Projects</h2>
-                    <div className="row">
-                        {this.state.projects.map((item)=>(
-                            <div className="col-lg-4 col-md-6 col-sm-6 portfolioCard mb-2 " key={item.prjId}
-                                // onMouseEnter={this.detailsDisplay}
-                                // onMouseLeave={this.portfolioDisplay}
-                            >
-                                {this.state.cardDisplay}
-                                <div className="card" style={{width: '90%'}}>
-                                    <div className={(item.cardDisplay ? "portfolio" : "noDisplay")}>
-                                        <img className="card-img-top" src={"./" + item.image} alt="Card cap"/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">
-                                                {item.name}
-
-                                                <FaEllipsisV className="toggleIcons" size={14} style={{color:'#0D867A'}} onClick={ () =>this.detailsDisplay(item.prjId )} />
-                                            </h5>
-                                            <p className="card-text">
-                                                {item.desc}
-                                            </p>
-                                        </div>
+                    <div>Loading...</div>
+                ) : (
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12">
+                                <div className="col-lg-10 col-md-10 pr">
+                                    <div className="col-lg-6 col-md-8 col-sm-8 projectsList ">
+                                    <h3 className="">Projects</h3>
                                     </div>
                                 </div>
+                                <div className="col-lg-6 SearchPrjs">
 
+                                    {/*<input id="SearchPrjs" placeholder="Search Projects" type="text" className="form-control "*/}
+                                    {/*       name ="serachinput"   aria-label="Search Projects"*/}
+                                    {/*       onChange={ e => this.searchProjs(e.target.value)}*/}
 
-                                <div className={"detailsDiv " + (item.detailDisplay ? "projectDetail" : "noDisplay")}>
-                                    <div className="card accomplishments" style={{width: '90%'}}>
-                                        <div style={{minHeight :'85%'}}>
-                                            <p className="accom_heading">
-                                                <span>Accomplishments</span>
-                                                <FaTimes className="toggleIcons" size={14} style={{color:'orange'}} onClick={ () =>this.detailsDisplay(item.prjId)} />
-                                            </p>
-                                            <ul>
-                                                {item.accomplishments.map((accom, key) =>(
-                                                    <li>{accom}</li>
-
-                                                ))
-                                                }
-
-
-                                            </ul>
-                                        </div>
-
-
-                                        <div className="card-body" style={{borderTop:'1px solid grey',paddingTop:'2%'}}>
-                                            <div className="row">
-                                                <div className=" projectsLinks mr-2 mb-2">
-                                                    <a href={item.github} target="_blank" rel="noopener noreferrer"><FaGithub size={30} title="View Source" style={{color:'#fff'}} /></a>
-                                                </div>
-                                                <div className=" projectsLinks mr-">
-                                                    <a href={item.online} target="_blank" rel="noopener noreferrer"> <FaExternalLinkAlt size={20}  title="View Online" style={{color:'#fff'}} /></a>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
+                                    {/*/>*/}
                                 </div>
-
-
-                                <div className="col-lg-4 col-md-4 col-sm-6">
-
-                                </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6"></div>
 
                             </div>
-                        ))
-                        }
 
+
+                        </div>
+
+
+                        <br/><br/>
+
+                        {filteredProjs.map((item) => (
+                            <div className="row mainPrj" style={{marginBottom: '3%'}}>
+                                <FadeInSection>
+                                    <div className="row projectDivs">
+                                        <div className="col-lg-6 projectImageDiv"
+                                        >
+                                            <img src={item.image} className="img-responsive" />
+                                        </div>
+
+                                        <div className="col-lg-5 projectDetailsDiv">
+                                            <div className="tech">
+
+                                                <span>{item.technologies} </span>
+
+                                            </div>
+                                            <div className="flex-row flex-center prjName"><h3>{item.name}</h3></div>
+                                            <div className="tech"><p>{item.desc}</p></div>
+                                            <div className="" style={{width: '90%'}}>
+
+                                                <div className="row flex-row flex-center">
+                                                    <div className="projectsLinks mr-2 mb-2">
+                                                        <a href={item.github ? item.github : "#"}
+                                                           target="_blank"
+                                                           rel="noopener noreferrer"><FaGithub size={30}
+                                                                                               title={item.github ? "View Source" : "No Link available"}
+                                                                                               style={{color: '#fff'}}/></a>
+                                                    </div>
+                                                    <div className=" projectsLinks mr-2 ml-2">
+                                                        <a href={item.online ? item.online : "#"}
+                                                           target="_blank"
+                                                           rel="noopener noreferrer"> <FaExternalLinkAlt
+                                                            size={20}
+                                                            title={item.online ? "View Online" : "No Link available"}
+                                                            style={{color: '#fff'}}/></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </FadeInSection>
+
+                            </div>
+
+
+                        ))}
                     </div>
-                </div>
-                    )}
+                )
+                }
             </>
         )
-
     }
 }
 

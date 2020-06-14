@@ -3,14 +3,20 @@ import {Link} from 'react-router-dom';
 import {Modal} from "react-bootstrap";
 import Contact from "./components/Contact";
 import './css/App.css';
-class Navbar extends Component {
+import {FaBars,FaTimes} from "react-icons/all";
+import {Collapse} from 'react-bootstrap'
+import { Navbar, Container, NavDropdown, Nav, Dropdown } from "react-bootstrap";
+
+
+
+class Navbars extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             show: false,
-            lastIndex: 0
-
+            lastIndex: 0,
+            isOpen : false
         }
     }
 
@@ -24,7 +30,7 @@ class Navbar extends Component {
     // for contact message
     contactMessage = (message) => {
         // sending data to server
-      fetch(`/contact`, {
+        fetch(`/contact`, {
             method: 'post',
             body: JSON.stringify(message),
             headers: {
@@ -33,9 +39,20 @@ class Navbar extends Component {
         });
         this.handleClose();
     }
+handleClose = ()=>{
 
-    // for pdf conversion
-
+}
+    // for navbar close
+    toggle = () =>{
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+    }
+    closeNav = () =>{
+        this.setState({
+            isOpen : false
+        })
+    }
 
 
     render() {
@@ -43,63 +60,72 @@ class Navbar extends Component {
 
         return (
             <>
-                <nav className="navbar navbar-expand-lg navbar-light bg-inverse">
-                    <button className="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <Link className="navbar-brand" to="/">Aftab</Link>
 
-                    <div className="collapse navbar-collapse pull-right" id="navbarTogglerDemo03">
+                <nav className="navbar navbar-dark" >
+                    <a className="navbar-brand" href="/">
+
+                    </a>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#collapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"
+                    onClick={this.toggle}
+                    >
+                        <span className="">
+                            {this.state.isOpen ?
+                                <FaTimes className="fas fa-times" style={{color:"#ffffff", fontSize:"28px"}}></FaTimes>
+                                :
+                                <FaBars className="fas fa-bars" style={{color:"#fff", fontSize:"28px"}}></FaBars>}
+
+   </span>
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="collapsingNavbar">
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/about">About | </Link>
+                                <a className="nav-link" href="/about" >About <span
+                                    className="sr-only">(current)</span></a>
+
+
+                                {/*<Link className="nav-link" to="/about" >About  </Link>*/}
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/portfolio">Portfolio | </Link>
+                                <a className="nav-link" href="/portfolio">Portfolio</a>
+                                {/*<Link className="nav-link" to="/portfolio" >Portfolio </Link>*/}
                             </li>
                             <li className="nav-item">
-                                <Link to="#" className="nav-link" onClick={this.toggleContact}>Contact |</Link>
+                                <a className="nav-link" href="#" onClick={this.toggleContact}>Contact</a>
+
+                                {/*<Link to="#" className="nav-link" onClick={this.toggleContact}>Contact</Link>*/}
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/resume" >Resume </Link>
+                                <a className="nav-link" href="/resume">Resume</a>
                             </li>
                         </ul>
 
                     </div>
+
                 </nav>
 
 
                 {/*for contact modal*/}
 
-
                 <Modal className="modal right fade" show={this.state.show} onHide={this.toggleContact}>
                     <div className="modal-content">
                         <Modal.Header closeButton>
-
+                            <h3 style={{color:'#16ADE3'}}>Hello !! Let's Talk</h3>
                         </Modal.Header>
-                        <Modal.Body><Contact className="modal-body" sendMessage={this.contactMessage}/></Modal.Body>
-                        {/*<Modal.Footer>*/}
-                        {/*    <Button variant="secondary" onClick={this.handleClose}>*/}
-                        {/*        Close*/}
-                        {/*    </Button>*/}
-                        {/*    <Button variant="primary" onClick={this.handleClose}>*/}
-                        {/*        Save Changes*/}
-                        {/*    </Button>*/}
-                        {/*</Modal.Footer>*/}
+                        <Modal.Body>
+                            <Contact className="modal-body" sendMessage={this.contactMessage}/>
+                        </Modal.Body>
+
                     </div>
                 </Modal>
 
                 {/*Contact modal ends*/}
-                {/* Resume Component*/}
-
-                {/*Resume component ends*/}
 
             </>
         )
     }
 }
 
-export default Navbar
+export default Navbars

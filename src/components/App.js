@@ -10,7 +10,7 @@ import Home from "./Home";
 import Portfolio from "./Portfolio";
 import Contact from "./Contact";
 import About from "./About";
-import Navbar from "../Navbar";
+import Navbars from "../Navbar";
 import Resume from "./Resume";
 import DownloadResume from "./DownloadResume";
 
@@ -23,17 +23,18 @@ import DownloadResume from "./DownloadResume";
         return (
             <Router>
                 <div className="App">
-                    <Navbar />
 
-                    <Switch>
-                        <Route path="/" component={Home} exact/>
-                        <Route path ="/portfolio"  component={Portfolio} />
-                        <Route path = "/about" component ={About} />
-                        <Route path ="/contact" component = {Contact} />
-                        <Route path ="/resume" component = {Resume} />
-                        <Route path="/download-resume" component ={DownloadResume} />
+                        <Navbars />
 
-                    </Switch>
+                            <Switch>
+                                <Route path="/" component={Home} exact/>
+                                <Route path ="/portfolio"  component={Portfolio} />
+                                <Route path = "/about" component ={About} />
+                                <Route path ="/contact" component = {Contact} />
+                                <Route path ="/resume" component = {Resume} />
+                                <Route path="/download-resume" component ={DownloadResume} />
+
+                            </Switch>
 
                 </div>
 

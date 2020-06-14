@@ -1,36 +1,19 @@
-import React,{useEffect,Component} from "react";
-import {FaDownload, FaLinkedin} from "react-icons/all";
-import AnimateWord from "./$AnimateWords";
-import {Animate, AnimateGroup,useAnimateGroup,useAnimate} from "react-simple-animate/dist/index.es";
+import React from "react";
+import {Animate, AnimateGroup} from "react-simple-animate/dist/index.es";
 import FadeInSection from "./FadeInSection";
 
 
 
 const Details = ({about}) => {
-const recBy = () =>{
-    var reccBy;
-    about.map(item => {
-         reccBy = item.recby;
-        return(
-        <p style={{fontSize:50}}>{item}</p>
-        )
-    })
-    console.log(`this is rec ${reccBy}`);
-    return (
 
-        <p>
-            {about.by}
-        </p>
-    )
-}
     return(
         <>
             {
                 about.map(item => (
-//<FadeInSection>
+
 
                     <div className="row" key={item.abtId}>
-                        <div className="col-lg-12 about_image_div flex-center">
+                        <div className="col-lg-12 about_image_div flex-center" style={{paddingLeft:'0 !important',paddingRight:'0 !important'}}>
                             <div className="row about_text">
 
                                 <AnimateGroup
@@ -63,7 +46,7 @@ const recBy = () =>{
 
                 )
             }
-            <div className="col-lg-12" style={{position:'relative',zIndex:'2',top:'-100px'}}>
+            <div className="col-lg-12 mainServiceDiv" style={{}}>
 
                 <FadeInSection>
                     <div className="row ">
