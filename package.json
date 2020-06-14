@@ -2,7 +2,6 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "main": "app.js",
   "proxy": "http://localhost:3000/",
   "dependencies": {
     "@openfonts/bebas-neue_latin": "^1.0.1",
@@ -39,12 +38,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postinstall": "react-scripts build"
-  },
-  "engines": {
-    "node": "~6.10.3",
-    "npm": "~5.6.0"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
