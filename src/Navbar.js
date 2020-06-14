@@ -4,8 +4,6 @@ import {Modal} from "react-bootstrap";
 import Contact from "./components/Contact";
 import './css/App.css';
 import {FaBars,FaTimes} from "react-icons/all";
-import {Collapse} from 'react-bootstrap'
-import { Navbar, Container, NavDropdown, Nav, Dropdown } from "react-bootstrap";
 
 
 

@@ -24,9 +24,9 @@ import DownloadResume from "./DownloadResume";
             <Router>
                 <div className="App">
 
-                        <Navbars />
-
+                    <Navbars />
                             <Switch>
+
                                 <Route path="/" component={Home} exact/>
                                 <Route path ="/portfolio"  component={Portfolio} />
                                 <Route path = "/about" component ={About} />
@@ -35,6 +35,7 @@ import DownloadResume from "./DownloadResume";
                                 <Route path="/download-resume" component ={DownloadResume} />
 
                             </Switch>
+
 
                 </div>
 
