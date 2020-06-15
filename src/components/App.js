@@ -12,7 +12,6 @@ import Contact from "./Contact";
 import About from "./About";
 import Navbars from "../Navbar";
 import Resume from "./Resume";
-import DownloadResume from "./DownloadResume";
 
 
  class App extends Component{
@@ -32,7 +31,7 @@ import DownloadResume from "./DownloadResume";
                                 <Route path = "/about" component ={About} />
                                 <Route path ="/contact" component = {Contact} />
                                 <Route path ="/resume" component = {Resume} />
-                                <Route path="/download-resume" component ={DownloadResume} />
+
 
                             </Switch>
 
