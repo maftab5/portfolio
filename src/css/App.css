@@ -2,9 +2,7 @@ body {
     background-color: #0d1323  !important;
   cursor: default;
 }
-#Timeless_Design g:nth-child(2) g:nth-child(2){
-   display: none !important;
- }
+
 #Timeless_Design g:nth-child(2) g:nth-child(3){
    display: none !important;
  }
@@ -15,8 +13,8 @@ body {
   background-repeat: no-repeat;
   /*height: 20vh;*/
   width: 120px;
-  height: 120px;
-  margin-top: -2%;
+  height: 70px;
+  margin-top: -1%;
 }
 
 .icon-bar{
@@ -105,3 +103,8 @@ body {
   opacity:0 !important;
 }
 /*Right modal ends*/
+@media screen and (max-width: 600px){
+  .modal.right .modal-dialog {
+    width: 100%;
+  }
+}

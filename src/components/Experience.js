@@ -1,7 +1,7 @@
 import React from "react";
 import FadeInSection from "./FadeInSection";
 
-const Experience = ({experience}) =>{
+const Experience = ({experience}) => {
     return (
         <>
             {/*EXPERIENCE SECTION STARTS*/}
@@ -12,8 +12,9 @@ const Experience = ({experience}) =>{
 
                 {
                     experience.map(item => (
-<FadeInSection>
-                            <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12 ml-auto about_inner_div" key={item.expId}>
+                        <FadeInSection>
+                            <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12 ml-auto about_inner_div"
+                                 key={item.expId}>
 
                                 <div className="section_header">
                                     <div className="row">
@@ -35,7 +36,7 @@ const Experience = ({experience}) =>{
 
                                     <p>PROJECTS</p>
                                     <ul>
-                                        { item.developed_projects.map(item => (
+                                        {item.developed_projects.map(item => (
                                             <li>
                                                 {item.name} : {item.desc}
                                             </li>
@@ -46,7 +47,7 @@ const Experience = ({experience}) =>{
 
                                     <p>ACCOMPLISHMENTS</p>
                                     <ul>
-                                        { item.company_accomplishments.map(item => (
+                                        {item.company_accomplishments.map(item => (
                                             <li>
                                                 {item}
                                             </li>
@@ -61,7 +62,7 @@ const Experience = ({experience}) =>{
                                 </div>
 
                             </div>
-</FadeInSection>
+                        </FadeInSection>
                     ))
                 }
 

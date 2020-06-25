@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import '../css/Portfolio.css';
-import {FaGithub, FaExternalLinkAlt, FaEllipsisV, FaTimes} from "react-icons/all";
-import {findIndex} from 'lodash';
+import {FaGithub, FaExternalLinkAlt} from "react-icons/all";
 import FadeInSection from "./FadeInSection";
 
 class Portfolio extends Component {
@@ -35,57 +34,14 @@ class Portfolio extends Component {
                 this.setState({
                     projects: projects
                 })
-
             })
-
     }
-
-    // for projects details toggle
-    detailsDisplay = (id) => {
-
-        let tempProjects = this.state.projects;
-
-        //using the lodash library's function to find the item from the array of items
-        let projectId = findIndex(this.state.projects, {
-            prjId: id
-        });
-        console.log(id + " this is id" + projectId);
-        //
-        console.log(`temp projs  ${tempProjects[0]}`)
-        tempProjects[projectId]['cardDisplay'] = !tempProjects[projectId]['cardDisplay'];
-        tempProjects[projectId]['detailDisplay'] = !tempProjects[projectId]['detailDisplay'];
-
-        this.setState({
-            projects: tempProjects
-        })
-
-    }
-
-
-    // for search projects in the search box
-    searchProjs = (query) => {
-        this.setState({
-            queryText: query
-        })
-    }
-
 
     render() {
-        // console.log(this.state.cardDisplay, this.state.detailDisplay)
         const {isFetching} = this.state;
-
-        let filteredProjs = this.state.projects;
-
-        filteredProjs = filteredProjs.filter(eachItem => {
-            return (
-                eachItem['name'].toLowerCase().includes(this.state.queryText.toLowerCase()) ||
-                eachItem['technologies'].toLowerCase().includes(this.state.queryText.toLowerCase())
-            )
-        })
-
+        let projects = this.state.projects;
         return (
             <>
-
                 {isFetching ? (
                     <div>Loading...</div>
                 ) : (
@@ -94,45 +50,30 @@ class Portfolio extends Component {
                             <div className="col-lg-12 col-md-12">
                                 <div className="col-lg-10 col-md-10 pr">
                                     <div className="col-lg-6 col-md-8 col-sm-8 projectsList ">
-                                    <h3 className="">Projects</h3>
+                                        <h3 className="">Projects</h3>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 SearchPrjs">
-
-                                    {/*<input id="SearchPrjs" placeholder="Search Projects" type="text" className="form-control "*/}
-                                    {/*       name ="serachinput"   aria-label="Search Projects"*/}
-                                    {/*       onChange={ e => this.searchProjs(e.target.value)}*/}
-
-                                    {/*/>*/}
                                 </div>
-
                             </div>
-
-
                         </div>
-
-
                         <br/><br/>
 
-                        {filteredProjs.map((item) => (
+                        {projects.map((item) => (
                             <div className="row mainPrj" style={{marginBottom: '3%'}}>
                                 <FadeInSection>
                                     <div className="row projectDivs">
-                                        <div className="col-lg-6 projectImageDiv"
-                                        >
-                                            <img src={item.image} className="img-responsive" />
+                                        <div className="col-lg-6 projectImageDiv">
+                                            <img src={item.image} className="img-responsive" alt={item.image}/>
                                         </div>
 
                                         <div className="col-lg-5 projectDetailsDiv">
                                             <div className="tech">
-
                                                 <span>{item.technologies} </span>
-
                                             </div>
                                             <div className="flex-row flex-center prjName"><h3>{item.name}</h3></div>
                                             <div className="tech"><p>{item.desc}</p></div>
                                             <div className="" style={{width: '90%'}}>
-
                                                 <div className="row flex-row flex-center">
                                                     <div className="projectsLinks mr-2 mb-2">
                                                         <a href={item.github ? item.github : "#"}
@@ -151,17 +92,10 @@ class Portfolio extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
                                         </div>
-
                                     </div>
                                 </FadeInSection>
-
                             </div>
-
-
                         ))}
                     </div>
                 )

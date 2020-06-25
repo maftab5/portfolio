@@ -2,8 +2,9 @@ import React, {Component} from "react";
 import '../css/Contact.css';
 import {FaEnvelope, FaPhone} from "react-icons/all";
 import ContactFormsErrors from "./ContactFormErrors";
-import {FlashMessage} from "react-flash-message";
 import CMessage from "./ContactFlashMessage";
+
+
 class Contact extends Component {
 
     constructor(props) {
@@ -55,7 +56,7 @@ class Contact extends Component {
                 fieldValidationErrors.last_name = lastNameValid ? '' : 'Last name field cannot be empty';
                 break;
             case 'email':
-                emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) && value != '';
+                emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) && value !== '';
                 fieldValidationErrors.email = emailValid ?'' : 'Provide a valid email';
                 break;
             case 'message':

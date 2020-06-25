@@ -1,14 +1,18 @@
 {
   "projects" :[
     {
+      "image" : "../mweather.JPG",
+      "name" : "mWeather App",
+      "technologies" :  "React",
+      "desc" : "Website for a weather information of different locations",
+      "github" : "https://github.com/maftab5/mweatherapps",
+      "online" : "https://mweatherapps.herokuapp.com/"
+    },
+    {
       "image" : "../cafe.JPG",
       "name" : "Online Cafe ",
       "technologies" :  "Angular | Node | MongoDb | Typescript",
       "desc" : "Website for a fast food service with online payment system",
-      "accomplishments" : [
-        "Node js and MongoDB as backend",
-        "Angular js,TypeScript, Bootstrap, CSS for frontend ","Authentication using JWT","payment using Paypal"
-      ],
       "github" : "https://github.com/maftab5/capestone-angular",
       "online" : "https://capestone-angular.herokuapp.com/"
     },
@@ -17,10 +21,6 @@
       "name" : "Abiva",
       "technologies" : "PHP | MySql | HTML | Bootstrap",
       "desc" : "An online learning platform for the students and teachers",
-      "accomplishments" : [
-        "PHP (Laravel ), MySql",
-        "Bootstrap, CSS, Javascript on frontend","Authentication using JWT","different modules for students, parents and teachers"
-      ],
       "github" : "",
       "online" : "https://capestone-angular.herokuapp.com/"
     },
@@ -28,38 +28,27 @@
       "image" : "../realestate.JPG",
       "name" : "RealEstate",
       "technologies" :"HTML5 | Javascript | Css | Bootstrap",
-      "desc" : "An online learning platform for the students and teachers",
-      "accomplishments" : [
-        "HTML", "CSS", "BOOTSTRAP","Javascript","jQuery"
-
-      ],
+      "desc" : "Responsive website to show the lists of properties .",
       "github" : "https://github.com/maftab5/responsive",
       "online" : "https://jsfinalproject.herokuapp.com/"
     },
     {
-      "image" : "portfolioimage.jpeg",
-      "name" : "Bhudeo",
-      "technologies" : "PHP | MySql | HTML | Bootstrap",
-      "desc" : "A project Management software that helps to track the projects assigned to team",
-      "accomplishments" : [
-        "PHP backend",
-        "Bootstrap, CSS, javascript on frontend","Authentication using JWT","multiple users assignation for project","different third party api integration"
-      ],
-      "github" : "",
-      "online" : ""
+      "image" : "../findpenguins.JPG",
+      "name" : "findpenguins",
+      "technologies" : "JavaScript| HTML | Bootstrap",
+      "desc" : "A game built in javascript and html to find penguins and score points",
+      "github" : "https://github.com/maftab5/findpenguins",
+      "online" : "https://findpenguins.herokuapp.com/"
     }
   ],
   "about" : [
     {
-    "recommendation" : "I had the privilege of working and teaching Mohammad in a few course during his time at Conestoga. Definetly one of the 'stars' we had come through the program. Always helping and contributing with great ideas and even better questions to challenge mine and his knowledge. To me, that is a sign of a student looking to name for themselves by proving their abilities through hard work. Great job Mohammad and all the best!\n-John\rPrinz\nHead\rof\rDepartment\nConestoga\rCollege",
-     "details" : "MOHAMMAD AFTAB. Born and raised in beautiful country Nepal"
-
-      }
+    "recommendation" : "I had the privilege of working and teaching Mohammad in a few course during his time at Conestoga. Definetly one of the 'stars' we had come through the program. Always helping and contributing with great ideas and even better questions to challenge mine and his knowledge. To me, that is a sign of a student looking to name for themselves by proving their abilities through hard work. Great job Mohammad and all the best!\n-John\rPrinz\nHead\rof\rDepartment\nConestoga\rCollege"
+     }
   ],
   "experience" : [
     {
       "company_name": "Techroadians Offshore Base",
-      "logo": "techroadian_logo.png",
       "details": "Kathmandu based Software solution company focused on Business branding, Web applications and Information technology ",
       "position" : "Full stack Web Developer",
       "developed_projects": [
@@ -88,7 +77,6 @@
     },
     {
       "company_name" : "Maskey Consultancy",
-      "logo" :  "maskey_logo.png",
       "details" : "Software Company that build every types of projects",
       "position" : "Full stack Web Developer",
       "developed_projects": [
@@ -107,7 +95,7 @@
       ],
       "company_accomplishments" : [
         "Created web applications, participating in the whole process of development",
-        "Product design and estimation, code and UI/UX design, product lunch and maintenance ",
+        "Product design and estimation, code and UI/UX design, product launch and maintenance ",
         "Worked on bug fixes, user interface updates, and performance enhancements",
         "Lead and mentored serveral developers"
       ],

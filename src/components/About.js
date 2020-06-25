@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import '../css/About.css';
-
 import Details from "./Details";
 import Skills from "./Skills";
 import Experience from "./Experience";

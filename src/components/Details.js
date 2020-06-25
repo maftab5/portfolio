@@ -2,16 +2,12 @@ import React from "react";
 import {Animate, AnimateGroup} from "react-simple-animate/dist/index.es";
 import FadeInSection from "./FadeInSection";
 
-
-
 const Details = ({about}) => {
 
     return(
         <>
             {
                 about.map(item => (
-
-
                     <div className="row" key={item.abtId}>
                         <div className="col-lg-12 about_image_div flex-center" style={{paddingLeft:'0 !important',paddingRight:'0 !important'}}>
                             <div className="row about_text">
@@ -34,16 +30,10 @@ const Details = ({about}) => {
                                     })
                                     }
                                 </AnimateGroup>
-
-
                             </div>
                         </div>
-
-
                     </div>
                 )
-
-
                 )
             }
             <div className="col-lg-12 mainServiceDiv" style={{}}>
