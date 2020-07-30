@@ -4,7 +4,7 @@
 
 ## Mohammad Aftab - Portfolio
 
-``` <span style="color: red"> It is a personal website. It is developed in **react and node js**. The contents of the website is read from a JSON file.</span> ```
+``` It is a personal website. It is developed in **react and node js**. The contents of the website is read from a JSON file.```
 
 
 ### `npm start`
