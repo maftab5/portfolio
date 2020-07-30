@@ -1,8 +1,11 @@
-## Portfolio - Mohammad Aftab
+![Portfolio image](/public/maftab.JPG)
+
+# Introduction #
+
+## Mohammad Aftab - Portfolio
 
 It is a personal website. It is developed in **react and node js**. The contents of the website is read from a JSON file. 
 
-![Portfolio image](/public/maftab.JPG)
 
 ### `npm start`
 
